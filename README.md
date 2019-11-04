@@ -15,9 +15,10 @@ Example:
 using DiscordOAuth.Web;
 using DiscordOAuth;
 
-if (isMaster) {
-	// Code to run on the Master process here
-}
+OAuth _OAuth = new OAuth("<OAuth URL>", "<Callback URL>");
+_OAuth.Response(@"Hello you have used Discord OAuth");
+dynamic text = JObject.Parse(Global.GetOAuth(_OAuth, Global.GetCred("<Client ID>", "<Client Secret>")).Result);
+Console.WriteLine("Username: "+text.username);
 ```
 ### Class
 
