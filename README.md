@@ -1,53 +1,37 @@
-##Discord OAuth
+# Discord OAuth
 
-### Features
+# About
 
-- Makes HTTP Listener to read your OAuth callback
-- Allows you to edit the HTML of your OAuth Callback
-- Libary Lets you get all the infomation required to get your OAuth infomation
-- Compatible with all OAuth Scopes
-- No async required when calling the function
-- function returns HTTP Errors, This allows you to read 401 errors
-- Returns RAW Output this allows you to read with a JSON Format
----
+Discord OAuth allow you to use discord OAuth via C# .Net, This comes with lots of easy usage on functions this is the only working C# .NET Discord OAuth on the NuGet Packages.
 
+# Installation and Usage
 
-####Inline code
-Donwloading the OAuth NuGet Packages, Run this command to download OAuth.
+To download Discord OAuth, run `dotnet add package Discord-OAuth --version 2.19.0`
 
-`dotnet add package Khiv`
+To use Discord OAuth, you can take a look at [example](#example)
 
----
-####OAuth Template Code
-
+Example:
 ```cs
-OAuth _OAuth = new OAuth("<OAuth URL>", "<OAuth Callback>");
-_OAuth.Response("Hello Welocme to OAuth Callback");
-string text = Global.GetOAuth(_OAuth, Global.GetCred("<Client_ID>","<Client_Secret>")).Result;
-Console.WriteLine(text);
+using DiscordOAuth.Web;
+using DiscordOAuth;
+
+if (isMaster) {
+	// Code to run on the Master process here
+}
 ```
-----
- ###Classes
-                    
+### Class
 
-| Function name | Description                    |
-| ------------- | ------------------------------ |
-| `DiscordOAuth.DiscordOAuth`      | Private Discord OAuth Functions. |
-| `DiscordOAuth.Global`  | Global Discord OAuth Functions. |
-----
+| Name            	| Argument(s)                                 	| Description                                              	|
+|-----------------	|---------------------------------------------	|----------------------------------------------------------	|
+| OAuth							    	|	`_OAuth`:	`string`, `_CallBack`: `string`    | Opens Discord OAuth.						                               	|
+| Global								  	| 																		                          	| Global Functions to read given OAuth Class														 	|
 
-###Functions
-                    
+### Functions
 
-| Function name | Description                    |
-| ------------- | ------------------------------ |
-| `DiscordOAuth()`      |  Private Discord OAuth Class Function.  |
-| `Response()`   |  Defines HTML Repsone Code.  |
-----
-###Functions
-| Function name | Description                    |
-| ------------- | ------------------------------ |
-| `GetOAuth()`      | Getting OAuth via OAuth Class. |
-| `GetCred()`   |  Creates a Base64 Fromat of the OAuth Token.  |
-| `GetToken()`   |  Getting OAuth data from Discords API.  |
-----
+| Method            	| Example                                 																 | Description                                                               	| Returns             	|
+|-------------------	|--------------------------------------------------------- |----------------------------------------------------------------------------|---------------------	|
+| GetOAuth						    	| `Global.GetOAuth(_OAuth, GetCred("<ID>", "<Secret>"));`  | This gets OAuth data from the `_OAuth` Class. This closes the `_OAuth`.    | `OAuth RAW Text`	 			|
+| GetCred			        	| `Global.GetCred("<ID>", "<Secret>"));`																		 | Converts `_OAuth ID` and `_OAuth Secret` to a Base64 Token.																| `Base64 Token`    	  |
+| GetToken									 	| `Global.GetToken(_OAuth, GetCred("<ID>", "<Secret>"));`  | Fetch `_OAuth` RAW JSON data.		                                  	         | `OAuth Client Data` 	|
+| OAuth					        	| `OAuth _OAuth = new OAuth("<OAuth URL>", "<CallBack>");` | Create `_OAuth`, This opens a private class to grab and take variables     | `null`									     	|
+| Response           | `_OAuth.Response("<Text>");`						      																 | Sets discord OAuth Calls back to the HTML Text entered.                    | `null`     										|
