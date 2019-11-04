@@ -1,4 +1,4 @@
-#Discord OAuth
+##Discord OAuth
 
 ### Features
 
