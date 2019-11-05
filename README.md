@@ -6,7 +6,7 @@ Discord OAuth allow you to use discord OAuth via C# .Net, This comes with lots o
 
 # Warning
 
-This does not work with Framework.
+This does not work out side of a application main entry point. 
 
 # Installation and Usage
 
