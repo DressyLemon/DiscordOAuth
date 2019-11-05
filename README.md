@@ -4,6 +4,10 @@
 
 Discord OAuth allow you to use discord OAuth via C# .Net, This comes with lots of easy usage on functions this is the only working C# .NET Discord OAuth on the NuGet Packages.
 
+# Warning
+
+This does not work with Framework.
+
 # Installation and Usage
 
 To download Discord OAuth, run `dotnet add package Discord-OAuth --version 2.19.0`
